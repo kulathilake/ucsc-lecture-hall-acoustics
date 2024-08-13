@@ -3,7 +3,6 @@ This project, developed for the MCS3202 - Simulation and Modelling Master's modu
 
 Sure! Here is the complete installation guide in Markdown format:
 
-```markdown
 # Installation Guide for Python Project
 
 ## Prerequisites
@@ -71,5 +70,3 @@ deactivate
 ```
 
 This returns you to your normal shell environment.
-
-```
