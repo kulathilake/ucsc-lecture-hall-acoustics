@@ -2,7 +2,7 @@
 import tkinter as tk
 import numpy as np
 from simulation import Simulation
-
+import time
 CANVAS_W = 950
 CANVAS_H = 950
 PADDING_W = 0
@@ -22,12 +22,21 @@ class GUI:
         self.last_receiver_id = 0
         self.source = None
         self.clickMode = "Add Lecturer"
+
+        # Lecture Hall label
+        self.hall_label = tk.Label(self.canvas, text="Lecture Hall: S10", bg="grey")
+        self.hall_label.place(x=0,y=0)
+        # Cursor Label
+        self.cursor_label = tk.Label(self.canvas, text=self.clickMode, bg="lightblue")
+        self.cursor_label.place(x=0,y=0)
         
+
         # Init Calls
         self.__draw_room()
 
         # Event Binders
         self.canvas.bind("<Button-1>", self.__on_canvas_click)
+        self.canvas.bind('<Motion>', self.__on_mouse_move)
 
     def clear_canvas(self):
         self.receivers = []
@@ -49,6 +58,11 @@ class GUI:
         print("CANVAS: switched add mode to 'student'")
 
     # Event Handlers
+    def __on_mouse_move(self,event):
+        roomX, roomY = self.__transform_canvas_coords_to_room(event.x,event.y)
+        self.cursor_label.config(text=f"{self.clickMode} (X:{roomX:2f}m,Y:{roomY:2f})")
+        self.cursor_label.place(x=event.x+10, y=event.y+10)
+
     def __on_canvas_click(self, event):
         x,y = event.x, event.y
         roomX, roomY = self.__transform_canvas_coords_to_room(x,y)

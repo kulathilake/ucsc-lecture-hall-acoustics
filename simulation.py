@@ -39,6 +39,7 @@ class Simulation:
             if(self.room.mic_array == None):
                 self.room.add_microphone_array(pra.MicrophoneArray(np.transpose(self.recievers),fs=self.room.fs))
             self.room.compute_rir()
+            print("SIMUL: simulation complete")
             self.room.plot_rir()
             plt.show()
         except Exception as e:
