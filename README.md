@@ -12,8 +12,8 @@ Sure! Here is the complete installation guide in Markdown format:
 First, you need to clone the project repository from GitHub (or any other source control management tool).
 
 ```sh
-git clone <git@github.com:kulathilake/ucsc-lecture-hall-acoustics.git>
-cd <ucsc-lecture-hall-acoustics>
+git clone git@github.com:kulathilake/ucsc-lecture-hall-acoustics.git
+cd ucsc-lecture-hall-acoustics
 ```
 
 ## Step 2: Create a Virtual Environment
